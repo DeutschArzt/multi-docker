@@ -3,20 +3,20 @@ services:
   - docker
 
 before_install:
-  - docker build -t deutscharzt/react-test -f ./client/Dockerfile.dev ./client
+  - docker build -t DeutschArzt/react-test -f ./client/Dockerfile.dev ./client
 
 script: 
-  - docker run -e CI=true deutscharzt/react-test npm test
+  - docker run -e CI=true DeutschArzt/react-test npm test
 
 after_success:
-  - docker build -t deutscharzt/multi-client ./client
-  - docker build -t deutscharzt/multi-nginx ./nginx
-  - docker build -t deutscharzt/multi-server ./server
-  - docker build -t deutscharzt/multi-worker ./worker
+  - docker build -t DeutschArzt/multi-client ./client
+  - docker build -t DeutschArzt/multi-nginx ./nginx
+  - docker build -t DeutschArzt/multi-server ./server
+  - docker build -t DeutschArzt/muli-worker ./worker
   # log into Docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # take those images and push them to docker hub
-  - docker push deutscharzt/multi-client
-  - docker push deutscharzt/multi-nginx
-  - docker push deutscharzt/multi-server
-  - docker push deutscharzt/multi-worker
+  - docker push DeutschArzt/multi-client
+  - docker push DeutschArzt/multi-nginx
+  - docker push DeutschArzt/multi-server
+  - docker push DeutschArzt/multi-worker
