@@ -19,7 +19,8 @@
         }
       ],
       "links": ["client", "server"],
-      "memory": 128
+      "memory": 128,
+      "hostname": "nginx"
     },
     {
       "name": "server",
@@ -31,6 +32,7 @@
     {
       "name": "worker",
       "image": "deutscharzt/multi-worker",
+      "hostname": "worker",
       "essential": false,
       "memory": 128
     }
